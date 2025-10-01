@@ -35,7 +35,7 @@ composer require tobento/service-sanitizer
 
 ## Requirements
 
-- PHP 8.0 or greater
+- PHP 8.4 or greater
 
 ## Highlights
 
@@ -303,10 +303,8 @@ class TrimFilter implements FilterInterface
      * 
      * @param mixed $value The value to sanitize
      * @param array $parameters The parameters set on the sanitation 'filter:foo:bar'
-     *
-     * @throws FilterException If filter cannot handle sanitation
-     *
      * @return mixed The sanitized value
+     * @throws FilterException If filter cannot handle sanitation
      */
     public function apply(mixed $value, array $parameters = []): mixed
     {
@@ -357,10 +355,8 @@ class FilterIfPresent extends FilterIf
      * 
      * @param mixed $value The value to sanitize
      * @param array $parameters The parameters set on the sanitation 'filter:foo:bar'
-     *
-     * @throws FilterException If filter cannot handle sanitation
-     *
      * @return mixed The sanitized value
+     * @throws FilterException If filter cannot handle sanitation
      */
     public function apply(mixed $value, array $parameters = []): mixed
     {
