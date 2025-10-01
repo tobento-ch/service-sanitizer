@@ -27,27 +27,23 @@ class FilterIf implements FilterInterface
      * 
      * @param mixed $value The value to sanitize
      * @param array $parameters The parameters set on the sanitation 'filter:foo:bar'
-     *
-     * @throws FilterException If filter cannot handle sanitation
-     *
      * @return mixed Return true if to apply filters, otherwise false.
+     * @throws FilterException If filter cannot handle sanitation
+     * @psalm-suppress UnusedVariable
      */
     public function apply(mixed $value, array $parameters = []): mixed
     {
         [$value, $data] = $value;
         
-        if (! $data instanceof Collection)
-        {
+        if (! $data instanceof Collection) {
             return false;
         }
         
-        if (count($parameters) < 2)
-        {
+        if (count($parameters) < 2) {
             return false;
         }
         
-        if (! $data->has($parameters[0]))
-        {
+        if (! $data->has($parameters[0])) {
             return false;
         }
         

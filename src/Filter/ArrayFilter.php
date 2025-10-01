@@ -36,15 +36,12 @@ class ArrayFilter implements FilterInterface
      * 
      * @param mixed $value The value to sanitize
      * @param array $parameters The parameters set on the sanitation 'date:Y-m-d:Y.m.d'
-     *
-     * @throws FilterException If filter cannot handle sanitation
-     *
      * @return mixed The sanitized value
+     * @throws FilterException If filter cannot handle sanitation
      */
     public function apply(mixed $value, array $parameters = []): mixed
     {    
-        if (!is_array($value))
-        {
+        if (!is_array($value)) {
             return $value;
         }
         
@@ -52,10 +49,8 @@ class ArrayFilter implements FilterInterface
                 
         $sanitized = [];
         
-        foreach($value as $key => $val)
-        {
-            if (isset($parameters[1]))
-            {
+        foreach($value as $key => $val) {
+            if (isset($parameters[1])) {
                 $key = $this->sanitizer->sanitizing($key, $parameters[1]);
             }
             

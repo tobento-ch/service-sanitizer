@@ -27,15 +27,12 @@ class FormatDate implements FilterInterface
      * 
      * @param mixed $value The value to sanitize
      * @param array $parameters The parameters set on the sanitation 'date:Y-m-d:Y.m.d'
-     *
-     * @throws FilterException If filter cannot handle sanitation
-     *
      * @return mixed The sanitized value
+     * @throws FilterException If filter cannot handle sanitation
      */
     public function apply(mixed $value, array $parameters = []): mixed
     {
-        if (!is_string($value))
-        {
+        if (!is_string($value)) {
             return $value;
         }
         
@@ -46,8 +43,7 @@ class FormatDate implements FilterInterface
         
         $date = $df->toDateTime($value, null, null, $currentFormat);
         
-        if (is_null($date))
-        {
+        if (is_null($date)) {
             return $value;
         }
         
